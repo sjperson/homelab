@@ -57,3 +57,9 @@ Post-install: `pve-no-subscription` repository, SSH via ed25519 key, password au
 - LXC instead of VMs: lower overhead on limited hardware
 - ext4 instead of ZFS: no ECC RAM, insufficient memory
 - NAT over USB WiFi: 802.11 doesn't support bridging
+
+## Services
+
+| Service | LXC ID | IP | Status |
+|---------|--------|----|--------|
+| — | — | — | pending |
