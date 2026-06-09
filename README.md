@@ -42,3 +42,12 @@ Single-node homelab on consumer hardware.
 |---------|-------|-----|
 | LAN | `<LAN_SUBNET>` | Router + Proxmox host |
 | Internal | `<LXC_SUBNET>` | LXCs via NAT |
+
+## Access
+
+| Method | Detail |
+|--------|--------|
+| Web UI | `https://<IP_HOST_LAN>:8006` |
+| SSH | `root@<IP_HOST_LAN>` |
+
+Post-install: `pve-no-subscription` repository, SSH via ed25519 key, password authentication disabled.
