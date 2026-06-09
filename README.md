@@ -30,3 +30,15 @@ Single-node homelab on consumer hardware.
      ├── [LXC] <IP_LXC_RANGE>
      └── ...
 ```
+
+## Network
+
+| Interface | Type | Description |
+|---------|------|-------------|
+| `<WIFI_INTERFACE>` | USB WiFi | Uplink to router |
+| `vmbr0` | Virtual bridge | NAT, <LXC_SUBNET_GATEWAY> |
+
+| Network | Range | Use |
+|---------|-------|-----|
+| LAN | `<LAN_SUBNET>` | Router + Proxmox host |
+| Internal | `<LXC_SUBNET>` | LXCs via NAT |
