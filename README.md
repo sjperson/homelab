@@ -14,3 +14,19 @@ Single-node homelab on consumer hardware.
 - Proxmox VE
 - Debian 13
 - LXC
+
+## Architecture
+
+```
+[LAN Router]
+     |
+[USB WiFi]
+     |
+[Proxmox]
+     |
+     | (vmbr0 - <LXC_SUBNET_GATEWAY> - NAT)
+     |
+     ├── [LXC] <IP_LXC_RANGE>
+     ├── [LXC] <IP_LXC_RANGE>
+     └── ...
+```
