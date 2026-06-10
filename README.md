@@ -1,6 +1,6 @@
 # homelab
 
-Single-node homelab on consumer hardware.
+Single-node homelab on repurposed hardware.
 
 ## Hardware
 
