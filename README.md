@@ -62,4 +62,4 @@ Post-install: `pve-no-subscription` repository, SSH via ed25519 key, password au
 
 | Service | LXC ID | IP | Status |
 |---------|--------|----|--------|
-| — | — | — | pending |
+| wireguard | `<LXC_VPN_ID>` | `<LXC_VPN_IP>` | active |
