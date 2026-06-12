@@ -26,14 +26,14 @@ Remote access VPN.
 
 | Name | VPN IP | Profile |
 |------|--------|---------|
-| pc-arch | `<VPN_CLIENT_PCARCH>` | wg0 (local), wg1 (external) |
+| pc | `<VPN_CLIENT_PC>` | wg0 (external) |
+| phone | `<VPN_CLIENT_PHONE>` | wg0 (external) |
 
 ## Decisions
 
 - Combined LXC for WireGuard + DDNS (DDNS client runs on the router, not the LXC)
-- wg0: local profile (Endpoint `<LXC_VPN_IP>`), AllowedIPs `<VPN_SUBNET>`
-- wg1: external profile (Endpoint `<VPN_DDNS_DOMAIN>`), AllowedIPs 0.0.0.0/0
-- Route `<LXC_SUBNET>` via `<IP_HOST_LAN>` required for local access
+- wg0: external profile (Endpoint `<VPN_DDNS_DOMAIN>`), AllowedIPs 0.0.0.0/0
+- Route `<LXC_SUBNET>` via `<IP_HOST_LAN>` required for LAN access from VPN
 
 ## Port forward
 
@@ -45,3 +45,10 @@ Remote access VPN.
 
 - `iptables -t nat -A POSTROUTING -s <VPN_SUBNET> -o eth0 -j MASQUERADE`
 - Persisted with `iptables-persistent`
+
+## Examples
+
+| File | Destination |
+|------|-------------|
+| `examples/wg0-server.conf` | `/etc/wireguard/wg0.conf` on LXC vpn |
+| `examples/wg0-client.conf` | `/etc/wireguard/wg0.conf` on client |
