@@ -37,5 +37,11 @@ Remote access VPN.
 
 ## Port forward
 
-- Router => `<IP_HOST_LAN>:<VPN_PORT>` UDP => `<LXC_VPN_IP>:<VPN_PORT>`
+- ISP Gateway => `<ISP_GATEWAY_WAN>:<VPN_PORT>` UDP => `<IP_HOST_WAN>:<VPN_PORT>` (TP-Link WAN)
+- TP-Link (`<ROUTER_IP>`) => `<IP_HOST_LAN>:<VPN_PORT>` UDP => Proxmox
 - Proxmox DNAT: `<WIFI_INTERFACE>` => `<LXC_VPN_IP>:<VPN_PORT>`
+
+## LXC NAT
+
+- `iptables -t nat -A POSTROUTING -s <VPN_SUBNET> -o eth0 -j MASQUERADE`
+- Persisted with `iptables-persistent`
