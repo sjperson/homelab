@@ -1,0 +1,17 @@
+# ============================================================
+# dnscrypt-proxy systemd unit
+# Destination: /etc/systemd/system/dnscrypt-proxy.service on LXC dns
+# Replaces the default package unit to disable socket activation
+# ============================================================
+
+[Unit]
+Description=DNSCrypt client proxy
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/dnscrypt-proxy -config /etc/dnscrypt-proxy/dnscrypt-proxy.toml
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
