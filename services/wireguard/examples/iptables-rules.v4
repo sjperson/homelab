@@ -1,0 +1,25 @@
+# ============================================================
+# iptables rules — LXC vpn
+# Managed by iptables-persistent
+# Destination: /etc/iptables/rules.v4 on LXC vpn
+# ============================================================
+
+*filter
+:INPUT ACCEPT
+:FORWARD ACCEPT
+:OUTPUT ACCEPT
+-A FORWARD -i wg0 -j ACCEPT
+-A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
+COMMIT
+
+*nat
+:PREROUTING ACCEPT
+:INPUT ACCEPT
+:OUTPUT ACCEPT
+:POSTROUTING ACCEPT
+# DNS: redirect VPN client queries to Pi-hole
+-A PREROUTING -i wg0 -p udp --dport 53 -j DNAT --to-destination <LXC_DNS_IP>:53
+-A PREROUTING -i wg0 -p tcp --dport 53 -j DNAT --to-destination <LXC_DNS_IP>:53
+# NAT: masquerade VPN traffic outbound
+-A POSTROUTING -s <VPN_SUBNET> -o eth0 -j MASQUERADE
+COMMIT
