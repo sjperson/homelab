@@ -64,3 +64,4 @@ Post-install: `pve-no-subscription` repository, SSH via ed25519 key, password au
 |---------|--------|----|--------|
 | wireguard | `<LXC_VPN_ID>` | `<LXC_VPN_IP>` | active |
 | pihole | `<LXC_DNS_ID>` | `<LXC_DNS_IP>` | active |
+| uptime-kuma | `<LXC_MONITOR_ID>` | `<LXC_MONITOR_IP>` | active |
