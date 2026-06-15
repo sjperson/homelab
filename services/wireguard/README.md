@@ -42,6 +42,8 @@ Remote access VPN.
 - TP-Link (`<ROUTER_IP>`) => `<IP_HOST_LAN>:<VPN_PORT>` UDP => Proxmox
 - Proxmox DNAT: `<WIFI_INTERFACE>` => `<LXC_VPN_IP>:<VPN_PORT>`
 
+<p align="center"><img src="../../docs/diagrams/vpn-flow.drawio.png"/></p>
+
 ## iptables
 
 All rules persisted with `iptables-persistent` (`/etc/iptables/rules.v4`).

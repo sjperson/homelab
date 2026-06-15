@@ -27,6 +27,8 @@ VPN clients reach Pi-hole via DNAT in the WireGuard LXC — see `services/wiregu
 
 LAN devices reach Pi-hole via the router DNS setting (`<LXC_DNS_IP>`).
 
+<p align="center"><img src="../../docs/diagrams/dns-flow.drawio.png"/></p>
+
 ## Decisions
 
 - Separate LXC from WireGuard: DNS available on LAN independently of VPN

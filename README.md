@@ -66,6 +66,8 @@ Post-install: `pve-no-subscription` repository, SSH via ed25519 key, password au
 | pihole | `<LXC_DNS_ID>` | `<LXC_DNS_IP>` | active |
 | uptime-kuma | `<LXC_MONITOR_ID>` | `<LXC_MONITOR_IP>` | active |
 
+<p align="center"><img src="docs/diagrams/network-and-services.drawio.png" width="600"/></p>
+
 ## Backups
 
 Automated daily backups to Google Drive — see `services/backups/README.md`.
